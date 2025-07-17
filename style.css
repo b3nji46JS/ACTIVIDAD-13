@@ -1,0 +1,131 @@
+/* Estilos generales y reinicios básicos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #333;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* La caja padre (ajustada para 3 columnas cómodamente) */
+.caja_padre {
+    /* Ajustamos el width para que 3 columnas quepan bien y sea compacto */
+    width: 1000px; /* Un poco más grande que el anterior, para que quepan 3 columnas */
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    max-width: calc(100% - 40px); /* Para responsividad */
+}
+
+/* Contenedor de la cuadrícula de productos (3 columnas) */
+.productos-grid {
+    display: grid;
+    /* Fuerza tres columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Espacio entre las tarjetas */
+    /* Para centrar los elementos de la última fila (cuando no completan la fila),
+       podemos usar justify-content en el contenedor grid si no hay suficiente para rellenar */
+    justify-content: center; /* Centra las columnas en el eje principal (horizontal) */
+}
+
+/* Estilos para cada tarjeta de producto (sin cambios significativos) */
+.producto-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.producto-imagen {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 10px;
+}
+
+.producto-imagen img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.producto-categoria {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 8px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.producto-nombre {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 3px;
+    margin-left: 10px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.producto-precio {
+    font-size: 1.3rem;
+    color: #e60000;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1050px) { /* Ajuste si la caja padre ya no tiene suficiente espacio para 3 columnas */
+    .caja_padre {
+        padding: 30px;
+        margin: 40px auto;
+    }
+    .productos-grid {
+        grid-template-columns: repeat(3, 1fr); /* Mantenemos 3 columnas hasta este punto */
+        gap: 12px;
+    }
+}
+
+@media (max-width: 850px) { /* Pasamos a 2 columnas */
+    .caja_padre {
+        padding: 25px;
+        margin: 30px auto;
+    }
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .producto-nombre { /* Ajustes de tamaño de texto para pantallas más pequeñas */
+        font-size: 0.95rem;
+    }
+    .producto-precio {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) { /* En pantallas muy pequeñas, pasa a una sola columna */
+    .caja_padre {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .productos-grid {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+        gap: 15px;
+    }
+}

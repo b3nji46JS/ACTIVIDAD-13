@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;    
+}
+
+.caja_padre {
+    width: 1200px;
+    margin: 80px auto;
+    padding: 60px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.caja_hijo{
+    width: 160px;
+    height: 200px;
+    margin: 20px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.flotar_izquierdo {
+    float: left;
+}
+.flotar_derecho {
+    float: right;
+}
+.restaura {
+    clear: both;    
+}
